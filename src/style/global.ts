@@ -20,6 +20,6 @@ export const GlobalStyle = createGlobalStyle<Props>`
 
     *{
         color : ${(props) => (props.themeName === "light" ? 
-        "black" : "coral")};
+        "black" : "grey")};
     }
 `;
