@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { ButtonScheme, ButtonSize } from '../../style/theme';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLInputElement>{
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     children : React.ReactNode;
     size : ButtonSize;
     scheme : ButtonScheme;
@@ -9,10 +9,10 @@ interface Props extends React.ButtonHTMLAttributes<HTMLInputElement>{
     isLoading? : boolean;
 }
 
-function Button({children, size, scheme, disabled, isLoading} : Props ) {
+function Button({children, size, scheme, disabled, isLoading, ...rest} : Props ) {
 
     return <ButtonStyle size = {size} scheme = {scheme} 
-    disabled = {disabled} isLoading = {isLoading}>
+    disabled = {disabled} isLoading = {isLoading} {...rest}>
         {children}
     </ButtonStyle>;
 }

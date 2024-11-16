@@ -1,4 +1,4 @@
 export interface Pagination {
-    currnetPage : number;
+    currentPage : number;
     totalCount : number;
 }
