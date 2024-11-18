@@ -9,7 +9,11 @@ function Header() {
 
     const { category } = useCategory();
     const { isloggedIn , storeLogout } = useAuthStore();
-
+    
+    const handelLogout = () => {
+        storeLogout();
+        window.location.reload();
+    }
     return (
         <HeaderStyle>
             <h1 className = "logo">
@@ -35,7 +39,7 @@ function Header() {
                     <ul>
                         <li><Link to="/cart">장바구니</Link></li>
                         <li><Link to="/orderlist">주문 내역</Link></li>
-                        <li><button onClick={storeLogout}>로그아웃</button></li>
+                        <li><button onClick={handelLogout}>로그아웃</button></li>
                     </ul>
                 )}
                 {!isloggedIn && (

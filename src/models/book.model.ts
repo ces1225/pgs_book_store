@@ -8,7 +8,7 @@ export interface Book {
     summary : string;
     detail : string;
     author : string;
-    pages : string;
+    pages : number;
     contents : string;
     price : number;
     likes : number;
@@ -17,5 +17,5 @@ export interface Book {
 
 export interface BookDetail extends Book {
     categoryName : string;
-    liked : Boolean;
+    liked : boolean;
 }

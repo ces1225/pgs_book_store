@@ -1,6 +1,10 @@
 import { SignupProps } from "../pages/Signup";
 import { httpClient } from "./http";
 
+interface LoginResponse {
+    token :string;
+}
+
 export const signup = async(userData : SignupProps) => {
     const response = await httpClient.post("users/join",
         userData
@@ -22,9 +26,6 @@ export const resetPassword = async (data : SignupProps) => {
     return response.data;
 }
 
-interface LoginResponse {
-    token :string;
-}
 
 export const login = async (data : SignupProps) => {
     const response = await httpClient.post<LoginResponse>("users/login",

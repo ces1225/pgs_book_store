@@ -6,7 +6,7 @@ export type HeadingSize = "large" | "medium" | "small";
 
 /**Button에서 사용 */
 export type ButtonSize = "large" | "medium" | "small";
-export type ButtonScheme = "primary"|"normal"
+export type ButtonScheme = "primary"|"normal"| "like";
 
 /**Header에서 사용*/
 export type LayoutWidth = "large"|"medium"|"small";
@@ -84,6 +84,10 @@ export const light : Theme = {
         normal : {
             color : "black",
             backgroundColor : "lightgrey"
+        },
+        like : {
+            color : "white",
+            backgroundColor : "coral",
         }
     },
     borderRadius : {

@@ -13,12 +13,11 @@ export const getToken = () => {
 
 const setToken = (token : string) => {
     localStorage.setItem("token", token)
-}
+};
 
 export const removeToken = () => {
     localStorage.removeItem("token");
-
-}
+};
 
 export const useAuthStore = create<StoreState>((set) => ({
     isloggedIn : getToken() ? true : false,

@@ -13,7 +13,7 @@ const dummyBook = {
     summary: "사막에서 어린 왕자를 만난 조종사의 이야기입니다.",
     detail: "어린 왕자는 다양한 행성을 여행하며 인생의 의미를 찾고 사람들과의 관계를 배웁니다.",
     author: "앙투안 드 생텍쥐페리",
-    pages: "96",
+    pages: 96,
     contents: "어린 왕자가 행성을 여행하며 만난 사람들과 그로부터 배운 깨달음들",
     price: 15000,
     likes: 250,
@@ -33,6 +33,7 @@ describe("BookItem", () => {
         expect(getByText(dummyBook.author)).toBeInTheDocument();
         expect(getByText("15,000원")).toBeInTheDocument();
         expect(getByText(dummyBook.likes)).toBeInTheDocument();
+        expect(getByText(dummyBook.pubDate)).toBeInTheDocument();
         expect(getByAltText(dummyBook.title)).toHaveAttribute("src", `http://picsum.photos/id/${dummyBook.img}/600/600`);
     });
 });

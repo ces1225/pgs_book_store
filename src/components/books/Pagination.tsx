@@ -27,8 +27,8 @@ function Pagination( {pagination }: Props ) {
                 <ol>
                     {
                         Array(pages).fill(0).map((_ , index) => (
-                            <li>
-                                <Button key={index} size="small" 
+                            <li key={index}>
+                                <Button size="small" 
                                 scheme = {index+1 === currentPage ? "primary" : "normal"}
                                 onClick={()=>handleClickPage(index+1)}>
                                     {index + 1}
