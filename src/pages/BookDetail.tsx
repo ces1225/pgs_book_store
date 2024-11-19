@@ -123,12 +123,6 @@ const BookDetailStyle = styled.div`
             }
         }
     }
-
-    .content {
-        .detail {
-            
-        }
-    }
 `;
 
 export default BookDetail;

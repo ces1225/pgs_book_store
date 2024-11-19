@@ -5,6 +5,14 @@ export const useAlert = () => {
         window.alert(message);
     },[])
 
-    return showAlert;
+    const showConfirm = useCallback((message : string, 
+        onConfirm : () => void) => {
+            if (window.confirm(message)){
+                onConfirm();
+            }
+        },[])
+
+    return {showAlert,showConfirm};
 };
 
+// useAlert 리팩토링
