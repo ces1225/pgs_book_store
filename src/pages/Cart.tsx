@@ -97,11 +97,13 @@ function Cart() {
                 </>
                 )}
             {isEmpty && (
-                <Empty 
+                <div className='empty'>
+                    <Empty 
                     title = "장바구니가 비었습니다."
                     icon={<FaShoppingCart />}
                     description={<>장바구니를 채워보세요!</>}
                 />
+                </div>
             )}
         </CartStyle>
     </>
@@ -111,8 +113,12 @@ function Cart() {
 export const CartStyle = styled.div`
     display: flex;
     gap: 24px;
-    justify-content: space-between;
+    justify-content: center;
     padding : 24px 0 0 0;
+    
+    .empty {
+
+    }
 
     .content{
         flex : 1;
@@ -165,8 +171,6 @@ export const CartStyle = styled.div`
         text-align: right;
         }
     }
-
-
 `;
 
 export default Cart;

@@ -8,6 +8,7 @@ import {useForm} from "react-hook-form";
 import { resetPassword, resetRequest, signup } from '../api/auth.api';
 import { useAlert } from '../hooks/useAlert';
 import { SignupStyle } from './Signup';
+import { useAuth } from '@/hooks/useAuth';
 
 export interface SignupProps {
     email : string;
@@ -15,9 +16,7 @@ export interface SignupProps {
 }
 
 function ResetPassword() {
-    const navigate = useNavigate();
-    const {showAlert} = useAlert();
-    const [resetRequested, setResetRequested] = useState(false);
+    const {userResetPassword, userResetRequest, resetRequested}= useAuth();
 
     const {
         register,
@@ -26,18 +25,13 @@ function ResetPassword() {
     } = useForm<SignupProps>(); 
 
     const onSubmit = (data : SignupProps) => {
-        if (resetRequested) {
-            // 초기화
-            resetPassword(data).then(()=>{
-                showAlert("비밀번호가 초기화되었습니다.");
-                navigate("/login");
-            })
-        } else {
-            // 요청
-            resetRequest(data).then(()=>{
-                setResetRequested(true);
-            })
-        }
+        // if (resetRequested) {
+        //     userResetPassword(data);
+        // } else {
+        //     userResetRequest(data);
+        // }
+
+        resetRequested ? userResetPassword(data) : userResetRequest(data);
     }
 
     return (
@@ -53,9 +47,9 @@ function ResetPassword() {
                 </fieldset>
                 {resetRequested && (
                 <fieldset>
-                <InputText placeholder='비밀번호' InputType="password" 
-                {...register ("password" , {required :true})} />
-                {errors.password && <p className='error-text'>비밀번호를 입력해주세요.</p>}
+                    <InputText placeholder='비밀번호' InputType="password" 
+                    {...register ("password" , {required :true})} />
+                    {errors.password && <p className='error-text'>비밀번호를 입력해주세요.</p>}
                 </fieldset>
                 )}
                 <fieldset>
