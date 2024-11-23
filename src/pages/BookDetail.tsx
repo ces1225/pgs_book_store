@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import EllipsisBox from '../components/common/EllipsisBox';
 import LikeButton from '../components/book/LikeButton';
 import AddToCart from '../components/book/AddToCart';
+import BookReview from '@/components/book/BookReview';
 
 const bookInfoList = [
     {
@@ -24,7 +25,7 @@ const bookInfoList = [
     },
     {
         label : "페이지",
-        key : "isbn",
+        key : "pages",
     },
     {
         label : "ISBN",
@@ -48,7 +49,7 @@ const bookInfoList = [
 
 function BookDetail() {
     const {bookId} = useParams();
-    const { book , likeToggle } = useBook(bookId);
+    const { book , likeToggle , reviews, addReview } = useBook(bookId);
 
     if (!book) return null;
     console.log(book)
@@ -85,6 +86,8 @@ function BookDetail() {
             <p className="detail">
                 {book.contents}
             </p>
+            <Title size="medium">리뷰</Title>
+            <BookReview reviews={reviews} onAdd={addReview}/>
         </div>
     </BookDetailStyle>;
 }
