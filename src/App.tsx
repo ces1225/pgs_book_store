@@ -13,6 +13,7 @@ import Order from "./pages/Order";
 import OrderList from "./pages/OrderList";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "./api/queryClient";
+import ToastContainer from "./components/common/toast/ToastContainer";
 
 const routeList = [
   {
@@ -59,7 +60,7 @@ const router = createBrowserRouter(
       ...item,
       element: <Layout>{item.element}</Layout>,
       errorElement: <Error />,
-    }
+    };
   })
 );
 
@@ -68,6 +69,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BookStoreThemeProvider>
         <RouterProvider router={router} />
+        <ToastContainer />
       </BookStoreThemeProvider>
     </QueryClientProvider>
   );
