@@ -11,6 +11,9 @@ export type ButtonScheme = "primary"|"normal"| "like";
 /**Header에서 사용*/
 export type LayoutWidth = "large"|"medium"|"small";
 
+/**반응형 웹에서 사용*/
+export type MediaQuery = "mobile"| "tablet" | "desktop";
+
 interface Theme {
     name : ThemeName
     color : Record<ColorKey, string>
@@ -38,6 +41,9 @@ interface Theme {
         width : {
             [key in LayoutWidth] : string;
         }
+    }
+    mediaQuery : {
+        [key in MediaQuery] : string;
     }
 }
 
@@ -99,6 +105,11 @@ export const light : Theme = {
             medium : "760px",
             small : "320px"
         }
+    },
+    mediaQuery :{
+        mobile:"(max-width: 768px)", // 768 이하
+        tablet:"(max-width: 1024px)", // 1024 이하
+        desktop:"(min-width: 1025px)", // 1025 이상
     }
 };
 

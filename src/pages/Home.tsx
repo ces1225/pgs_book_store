@@ -5,10 +5,14 @@ import Title from '@/components/common/Title';
 import MainNewBooks from '@/components/main/MainNewBooks';
 import MainBest from '@/components/main/MainBest';
 import Banner from '@/components/common/banner/Banner';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Home() {
     // useMain에서 데이터를 fetch해온다. 하단에서는 데이터를 정제해서 보여준다.
     const { reviews , newBooks , bestBooks , banners } = useMain();
+    const { isMobile } = useMediaQuery();
+
+    console.log("isMobile", isMobile)
 
     return (
         <HomeStyle>

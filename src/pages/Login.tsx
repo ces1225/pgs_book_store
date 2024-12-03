@@ -37,12 +37,14 @@ function Login() {
                 <fieldset>
                     <InputText 
                     placeholder='이메일' InputType="email" 
-                    {...register ("email" , {required :true})} />
+                    {...register ("email" , {required :true})} 
+                    inputMode='email' />
                     {errors.email && <p className='error-text'>이메일을 입력해주세요.</p>}
                 </fieldset>
                 <fieldset>
                     <InputText placeholder='비밀번호' InputType="password" 
-                    {...register ("password" , {required :true})} />
+                    {...register ("password" , {required :true})} 
+                    inputMode='text' />
                     {errors.password && <p className='error-text'>비밀번호를 입력해주세요.</p>}
                 </fieldset>
                 <fieldset>
